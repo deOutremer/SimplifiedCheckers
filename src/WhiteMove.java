@@ -25,9 +25,9 @@ public class WhiteMove extends Move{
      * create the string of a move.
      * moveType == 1 is regular
      * moveType == 2 is capture
-     * @param x
-     * @param y
-     * @param moveType
+     * @param x x coordinate
+     * @param y y coordinate
+     * @param moveType type of move
      */
     public static String[] diagonalMove(int x, int y, int moveType) {
         String[] potentialMoves = new String[2];

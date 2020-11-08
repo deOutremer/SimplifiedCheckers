@@ -37,20 +37,14 @@ public class Move {
 
     protected boolean isMoveInBounds() {
         int[] boardDimensions = board.getBoardDimensions();
-        if (source.x() >= 0 &&
+        return source.x() >= 0 &&
                 source.y() >= 0 &&
                 source.x() < boardDimensions[0] &&
                 source.y() < boardDimensions[1] &&
                 target.x() >= 0 &&
                 target.y() >= 0 &&
                 target.x() < boardDimensions[0] &&
-                target.y() < boardDimensions[1]
-        ) {
-            return true;
-        }
-        else {
-            return false;
-        }
+                target.y() < boardDimensions[1];
     }
 
     protected boolean doesSourceTileContainsLegalPiece(boolean isCounterCapture) {
@@ -63,8 +57,7 @@ public class Move {
     protected boolean isTargetTileIsLegal() {
         Color pieceInTile = board.getTile(target.x(), target.y()).getPieceColor();
         Color tileColor = board.getTile(target.x(), target.y()).getTileColor();
-        if (pieceInTile == Color.EMPTY && tileColor == Color.BLACK) return true;
-        else return false;
+        return pieceInTile == Color.EMPTY && tileColor == Color.BLACK;
     }
 
     protected boolean isKnownCaptureMove() {
